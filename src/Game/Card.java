@@ -19,8 +19,4 @@ public class Card {
     int getValue() {
         return value;
     }
-
-    public void test(){
-
-    }
 }

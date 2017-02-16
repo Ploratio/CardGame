@@ -12,11 +12,15 @@ public class Card {
         this.colour = possibleColours[colour];
     }
 
-    public String getColour() {
+    String getColour() {
         return colour;
     }
 
-    public int getValue() {
+    int getValue() {
         return value;
+    }
+
+    public void test(){
+
     }
 }

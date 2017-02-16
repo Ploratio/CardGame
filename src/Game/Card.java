@@ -1,7 +1,7 @@
 package Game;
 
 
-public class Card {
+class Card {
     private String[] possibleColours = {"Hearts", "Spades", "Diamonds", "Clubs"};
 
     private String colour;

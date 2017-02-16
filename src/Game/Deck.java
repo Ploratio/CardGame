@@ -5,22 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Deck {
+class Deck {
     private List<Card> deck = new ArrayList<Card>();
 
     Deck() {
         createNewDeck();
     }
 
-    public int getValueOfCard(int position) {
+    int getValueOfCard(int position) {
         return deck.get(position).getValue();
     }
 
-    public String getColourOfCard(int position) {
+    String getColourOfCard(int position) {
         return deck.get(position).getColour();
     }
 
-    public int getNumberOfCardsInDeck() {
+    int getNumberOfCardsInDeck() {
         return deck.size();
     }
 
@@ -28,22 +28,21 @@ public class Deck {
         deck.remove(position);
     }
 
-    public Card pickCardUp() {
+    Card pickCardUp() {
         Card topCard = getCardObject(0);
         destroyCard(0);
         return topCard;
     }
 
-    public Card getCardObject(int position) {
-        Card anyCard = deck.get(position);
-        return anyCard;
+    Card getCardObject(int position) {
+        return deck.get(position);
     }
 
-    public boolean isDeckEmpty() {
+    boolean isDeckEmpty() {
         return deck.isEmpty();
     }
 
-    public void shuffleDeck() {
+    void shuffleDeck() {
         Random r = new Random();
         int deckSize = getNumberOfCardsInDeck();
         List<Card> shuffledDeck = new ArrayList<Card>();

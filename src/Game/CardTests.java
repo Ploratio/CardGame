@@ -28,7 +28,7 @@ public class CardTests {
     public void canCreateCard() throws Exception {
         Card c = new Card(2, 0);
 
-        assertEquals("Hearts", c.getColour());
+        assertEquals("Hearts", c.getSuit());
         assertEquals(2, c.getValue());
     }
 
@@ -50,19 +50,17 @@ public class CardTests {
     }
 
 
-
     @Test
     public void canShuffleDeck() throws Exception {
         Deck d = new Deck();
         int cardsInDeck = d.getNumberOfCardsInDeck();
         d.shuffleDeck();
         assertEquals(cardsInDeck, d.getNumberOfCardsInDeck());
-        
-        if (d.getColourOfCard(0) == "Hearts" || d.getColourOfCard(0) == "Spades" || d.getColourOfCard(0) == "Diamonds" || d.getColourOfCard(0) == "Clubs") {
-        } else {
+
+        if (!(d.getColourOfCard(0).equals("Hearts") || d.getColourOfCard(0).equals("Spades") || d.getColourOfCard(0).equals("Diamonds") || d.getColourOfCard(0).equals("Clubs"))) {
             fail("First card is empty!");
         }
-        
+
         if (d.getValueOfCard(0) == 2 && d.getValueOfCard(1) == 3 && d.getValueOfCard(2) == 4) {
             fail("Cards are not shuffled!");
         }
@@ -72,7 +70,7 @@ public class CardTests {
     public void canTakeFromTop() throws Exception {
         Deck d = new Deck();
         Card c = d.getCardObject(1);
-        d.pickCardUp();
+        d.pickTopCard();
         assertEquals(c, d.getCardObject(0));
         assertEquals(51, d.getNumberOfCardsInDeck());
     }
@@ -82,8 +80,18 @@ public class CardTests {
         Deck d = new Deck();
         int cardsInDeck = d.getNumberOfCardsInDeck();
         for (int i = 0; i < cardsInDeck; i++) {
-            d.pickCardUp();
+            d.pickTopCard();
         }
         assertTrue(d.isDeckEmpty());
+    }
+
+    @Test
+    public void printCardCorrect() throws Exception {
+        Game g = new Game();
+        Card c1 = new Card(3, 0);
+        Card c2 = new Card(11, 2);
+
+        assertEquals("3 of Hearts", g.printPlayedCard(c1));
+        assertEquals("Jack of Diamonds", g.printPlayedCard(c2));
     }
 }

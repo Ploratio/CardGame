@@ -17,18 +17,14 @@ class Deck {
     }
 
     String getColourOfCard(int position) {
-        return deck.get(position).getColour();
+        return deck.get(position).getSuit();
     }
 
     int getNumberOfCardsInDeck() {
         return deck.size();
     }
 
-    private void destroyCard(int position) {
-        deck.remove(position);
-    }
-
-    Card pickCardUp() {
+    Card pickTopCard() {
         Card topCard = getCardObject(0);
         destroyCard(0);
         return topCard;
@@ -68,4 +64,10 @@ class Deck {
             deck.remove(randomPositionOrigin);
         }
     }
+
+    private void destroyCard(int position) {
+        deck.remove(position);
+    }
+
+
 }

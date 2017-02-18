@@ -2,18 +2,18 @@ package Game;
 
 
 class Card {
-    private String[] possibleColours = {"Hearts", "Spades", "Diamonds", "Clubs"};
-
-    private String colour;
+    private String suit;
     private int value;
 
-    Card(int value, int colour) {
+    Card(int value, int suit) {
+        String[] possibleSuits = {"Hearts", "Spades", "Diamonds", "Clubs"};
+
         this.value = value;
-        this.colour = possibleColours[colour];
+        this.suit = possibleSuits[suit];
     }
 
-    String getColour() {
-        return colour;
+    String getSuit() {
+        return suit;
     }
 
     int getValue() {

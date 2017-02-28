@@ -20,7 +20,7 @@ class Deck {
         return deck.get(position).getSuit();
     }
 
-    int getNumberOfCardsInDeck() {
+    int cardsInDeck() {
         return deck.size();
     }
 
@@ -40,10 +40,9 @@ class Deck {
 
     void shuffleDeck() {
         Random r = new Random();
-        int deckSize = getNumberOfCardsInDeck();
         List<Card> shuffledDeck = new ArrayList<Card>();
 
-        shuffle(r, shuffledDeck, deckSize);
+        shuffle(r, shuffledDeck, cardsInDeck());
         deck = shuffledDeck;
     }
 
@@ -58,10 +57,10 @@ class Deck {
 
     private void shuffle(Random r, List<Card> shuffledDeck, int deckSize) {
         for (int shufflingPosition = 0; shufflingPosition < deckSize; shufflingPosition++) {
-            int randomPositionOrigin = r.nextInt(deck.size());
+            int randomPositionOrigin = r.nextInt(cardsInDeck());
 
-            shuffledDeck.add(deck.get(randomPositionOrigin));
-            deck.remove(randomPositionOrigin);
+            shuffledDeck.add(getCardObject(randomPositionOrigin));
+            destroyCard(randomPositionOrigin);
         }
     }
 

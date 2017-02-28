@@ -35,7 +35,7 @@ public class CardTests {
     @Test
     public void deckHasCards() throws Exception {
         Deck d = new Deck();
-        assertEquals(52, d.getNumberOfCardsInDeck());
+        assertEquals(52, d.cardsInDeck());
     }
 
     @Test
@@ -53,9 +53,9 @@ public class CardTests {
     @Test
     public void canShuffleDeck() throws Exception {
         Deck d = new Deck();
-        int cardsInDeck = d.getNumberOfCardsInDeck();
+        int cardsInDeck = d.cardsInDeck();
         d.shuffleDeck();
-        assertEquals(cardsInDeck, d.getNumberOfCardsInDeck());
+        assertEquals(cardsInDeck, d.cardsInDeck());
 
         if (!(d.getColourOfCard(0).equals("Hearts") || d.getColourOfCard(0).equals("Spades") || d.getColourOfCard(0).equals("Diamonds") || d.getColourOfCard(0).equals("Clubs"))) {
             fail("First card is empty!");
@@ -72,13 +72,13 @@ public class CardTests {
         Card c = d.getCardObject(1);
         d.pickTopCard();
         assertEquals(c, d.getCardObject(0));
-        assertEquals(51, d.getNumberOfCardsInDeck());
+        assertEquals(51, d.cardsInDeck());
     }
 
     @Test
     public void canEmptyDeck() throws Exception {
         Deck d = new Deck();
-        int cardsInDeck = d.getNumberOfCardsInDeck();
+        int cardsInDeck = d.cardsInDeck();
         for (int i = 0; i < cardsInDeck; i++) {
             d.pickTopCard();
         }

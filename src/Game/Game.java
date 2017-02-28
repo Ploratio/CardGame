@@ -19,7 +19,7 @@ class Game {
         Card computersCard = computersDeck.pickTopCard();
 
         evaluateRoundWinner(playersCard, computersCard);
-        System.out.println(playersDeck.getNumberOfCardsInDeck() + " cards left to play.");
+        System.out.println(playersDeck.cardsInDeck() + " cards left to play.");
     }
 
     void doWeHaveWinner() {
